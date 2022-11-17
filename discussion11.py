@@ -38,13 +38,42 @@ def create_species_table(cur, conn):
 
 # TASK 1
 # CREATE TABLE FOR PATIENTS IN DATABASE
-def create_patients_table(cur, conn):
-    pass
+
+    conn = sqlite3.connect(species)
+
+    cursor = conn.cursor()
+
+
+    #Creating table as per requirement
+    sql ='''CREATE TABLE EMPLOYEE(
+    FIRST_NAME CHAR(20) NOT NULL,
+    LAST_NAME CHAR(20),
+    AGE INT,
+    SEX CHAR(1),
+    INCOME FLOAT
+    )'''
+    cursor.execute(sql)
+    print("Table created successfully........")
+
+    # Commit your changes in the database
+    conn.commit()
+
+    #Closing the connection
+    conn.close()
+
+    return conn
 
 
 # ADD FLUFFLE TO THE TABLE
 def add_fluffle(cur, conn):
-    pass
+    list = []
+
+    for i in conn: 
+        list.append(i)
+
+    return list
+
+    
     
 
 # TASK 2
@@ -58,6 +87,7 @@ def add_pets_from_json(filename, cur, conn):
     f.close()
     json_data = json.loads(file_data)
 
+    return f
     # THE REST IS UP TO YOU
     pass
 
@@ -65,6 +95,11 @@ def add_pets_from_json(filename, cur, conn):
 # TASK 3
 # CODE TO OUTPUT NON-AGGRESSIVE PETS
 def non_aggressive_pets(aggressiveness, cur, conn):
+
+    f = open(filename)
+    f.close
+
+    return f
     pass
 
 
